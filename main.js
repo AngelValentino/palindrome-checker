@@ -1,6 +1,5 @@
-const textInputLm = document.getElementById('text-input');
 const checkBtnLm = document.getElementById('check-btn');
-const resultLm = document.getElementById('result');
+const textInputLm = document.getElementById('text-input');
 
 
 function formatString(str) {
@@ -8,12 +7,20 @@ function formatString(str) {
     return str.replace(regex, '');
 }
 
-checkBtnLm.addEventListener('click', () => {
+function clearInput(input) {
+    input.value = '';
+}
+
+function isAPalindrome() {
+    const resultLm = document.getElementById('result');
+
     const textInput = formatString(textInputLm.value).toLowerCase();
     const textInputReverse = [...textInput].reverse().join('');
     
     if (textInput === '') {
         alert('Please input a value');
+        resultLm.innerHTML = '';
+        return;
     }
 
     let isEqual;
@@ -21,12 +28,19 @@ checkBtnLm.addEventListener('click', () => {
 
     if (isEqual) {
         resultLm.innerHTML = `<p>${textInputLm.value}  is a palindrome</p>`;
+        clearInput(textInputLm);
+
     } else {
         resultLm.innerHTML = `<p>${textInputLm.value}  is not a palindrome</p>`;
+        clearInput(textInputLm);
     }
-  
+}
 
-    console.log(isEqual);
-    console.log(textInput);
-    console.log(textInputReverse);
+
+checkBtnLm.addEventListener('click', isAPalindrome);
+
+textInputLm.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        isAPalindrome();
+    }
 });
