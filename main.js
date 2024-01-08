@@ -2,6 +2,23 @@ const checkBtnLm = document.getElementById('check-btn');
 const textInputLm = document.getElementById('text-input');
 
 
+const lightBulbOnLm = document.getElementById('lightbulb-on');
+const lightBulbOffLm = document.getElementById('lightbulb-off');
+const tooltipTextLm = document.getElementById('tooltip-text');
+
+
+lightBulbOffLm.addEventListener('mouseover', () => {
+    lightBulbOnLm.style.display = 'block';
+    tooltipTextLm.innerHTML = `<p>Examples of palindromes: <br />Civic, Radar, Race car, Never odd or even, (A man, a plan, a canal, Panama.)</p>`
+});
+
+lightBulbOffLm.addEventListener('mouseout', () => {
+    lightBulbOnLm.style.display = 'none';
+    tooltipTextLm.innerHTML = `<p>A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>`
+});
+
+
+
 function formatString(str) {
     const regex = /[^a-zA-Z\d]/g;
     return str.replace(regex, '');
@@ -27,11 +44,11 @@ function isAPalindrome() {
     textInput === textInputReverse ? isEqual = true : isEqual = false;
 
     if (isEqual) {
-        resultLm.innerHTML = `<p>${textInputLm.value}  is a palindrome</p>`;
+        resultLm.innerHTML = `<p><span>${textInputLm.value}</span>  is a palindrome</p>`;
         clearInput(textInputLm);
 
     } else {
-        resultLm.innerHTML = `<p>${textInputLm.value}  is not a palindrome</p>`;
+        resultLm.innerHTML = `<p><span>${textInputLm.value}</span>  is not a palindrome</p>`;
         clearInput(textInputLm);
     }
 }
@@ -44,3 +61,5 @@ textInputLm.addEventListener('keydown', (e) => {
         isAPalindrome();
     }
 });
+
+
