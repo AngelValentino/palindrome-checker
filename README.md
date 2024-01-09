@@ -1,4 +1,4 @@
-# [Palindrome Checker](https://youtube-clone1.pages.dev/)
+# [Palindrome Checker](https://palindrome-checker.pages.dev/)
 
 First project from the JavaScript Algorithms and Data Structures freecodecamp curriculm.
 
