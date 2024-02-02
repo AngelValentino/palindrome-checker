@@ -1,6 +1,6 @@
 # [Palindrome Checker](https://palindrome-checker.pages.dev/)
 
-First project from the JavaScript Algorithms and Data Structures freecodecamp curriculm.
+First project from the freecodecamp JavaScript Algorithms and Data Structures curriculum.
 
 <br />
 
