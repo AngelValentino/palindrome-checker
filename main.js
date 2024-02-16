@@ -1,7 +1,6 @@
 const checkBtnLm = document.getElementById('check-btn');
 const textInputLm = document.getElementById('text-input');
    
-
 function changeTipAtHover() {
     const lightBulbOnLm = document.getElementById('lightbulb-on');
     const lightBulbOffLm = document.getElementById('lightbulb-off');
@@ -21,7 +20,7 @@ function changeTipAtHover() {
 changeTipAtHover();
     
 function formatString(str) {
-    const regex = /[^a-zA-Z\d]/g;
+    const regex = /[^a-zA-Z]/g;
     return str.replace(regex, '');
 }
 
@@ -31,7 +30,6 @@ function clearInput(input) {
 
 function isAPalindrome() {
     const resultLm = document.getElementById('result');
-
     const textInput = formatString(textInputLm.value).toLowerCase();
     const textInputReverse = [...textInput].reverse().join('');
     
@@ -41,19 +39,17 @@ function isAPalindrome() {
         return;
     }
 
-    let isEqual;
-    textInput === textInputReverse ? isEqual = true : isEqual = false;
+    let isEqual = textInput === textInputReverse ? true : false;
 
     if (isEqual) {
-        resultLm.innerHTML = `<p><span>${textInputLm.value}</span>  is a palindrome</p>`;
+        resultLm.innerHTML = `<p><span>${textInputLm.value}</span> is a palindrome</p>`;
         clearInput(textInputLm);
 
     } else {
-        resultLm.innerHTML = `<p><span>${textInputLm.value}</span>  is not a palindrome</p>`;
+        resultLm.innerHTML = `<p><span>${textInputLm.value}</span> is not a palindrome</p>`;
         clearInput(textInputLm);
     }
 }
-
 
 checkBtnLm.addEventListener('click', isAPalindrome);
 
