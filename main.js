@@ -20,7 +20,7 @@ function changeTipAtHover() {
 changeTipAtHover();
     
 function formatString(str) {
-    const regex = /[^a-zA-Z]/g;
+    const regex = /[^a-zA-Z\d]/g;
     return str.replace(regex, '');
 }
 
@@ -39,7 +39,7 @@ function isAPalindrome() {
         return;
     }
 
-    let isEqual = textInput === textInputReverse ? true : false;
+    const isEqual = textInput === textInputReverse ? true : false;
 
     if (isEqual) {
         resultLm.innerHTML = `<p><span>${textInputLm.value}</span> is a palindrome</p>`;
